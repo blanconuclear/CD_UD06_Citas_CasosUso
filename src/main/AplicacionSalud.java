@@ -6,15 +6,17 @@ public class AplicacionSalud {
         // Simulando el registro de usuario
         RegistroUsuario registro = new RegistroUsuario();
         registro.registrarUsuario("usuario1", "contraseña1");
+        Medico medico = new Medico("Julio", "cardiologo");
 
         // Simulando el inicio de sesión
         if (registro.verificarCredenciales("usuario1", "contraseña1")) {
             // Simulando las funcionalidades de consulta médica
             GestionMedicos consulta = new GestionMedicos();
-            //TODO: addMedicos 
+            // TODO: addMedicos
             consulta.buscarEspecialistas("Cardiología");
             consulta.verRecetas("Paciente1");
             consulta.generarInforme("Paciente1");
+            consulta.addMedico(medico);
 
             // Simulando las funcionalidades de citas médicas
             CitasMedicas citas = new CitasMedicas();

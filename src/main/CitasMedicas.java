@@ -1,4 +1,5 @@
 package src.main;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,20 +13,26 @@ public class CitasMedicas {
 
     // TODO: Método para agendar una cita
     public void agendarCita(String fechaHora) {
+        calendario.add(fechaHora);
     }
 
     // TODO: Método para cancelar una cita
     public void cancelarCita(String fechaHora) {
-       
+        calendario.remove(calendario.indexOf(fechaHora));
     }
 
     // TODO: Método para reprogramar una cita
     public void reprogramarCita(String fechaHoraAntigua, String fechaHoraNueva) {
-       
+        if (calendario.indexOf(fechaHoraNueva) >= 0) {
+            calendario.remove(calendario.indexOf(fechaHoraAntigua));
+            calendario.add(fechaHoraNueva);
+        }
     }
 
     // TODO: Método para ver el calendario de citas
     public void verCalendario() {
-        
+        for (String cita : calendario) {
+            System.out.println(cita);
+        }
     }
 }
